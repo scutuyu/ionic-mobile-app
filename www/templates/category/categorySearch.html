@@ -1,0 +1,26 @@
+<ion-view>
+  <ion-content>
+    <div class="col bar bar-header item-input-inset bar-balanced" style="display: flex;padding: 0px!important;">
+      <div class="col col-20 button button-clear icon ion-android-arrow-back" style="margin-left: -20px"
+           ng-click="returnCategory()"></div>
+      <label class="item-input-wrapper" style="margin-left: -20px !important;">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" ng-model="searchKeyValue.key" placeholder="Search">
+      </label>
+      <button class="button button-clear" ng-click="search()">
+        搜索
+      </button>
+    </div>
+
+    <ion-list>
+      <ion-item class="item item-thumbnail-left" ng-repeat="goodsInfo in searchedGoodsInfo" ng-click="showDetail(goodsInfo)">
+        <img ng-src="{{goodsInfo.goodsPictureSmall}}">
+        <div class="row">
+          <h2 class="col" style="padding: 0px">{{goodsInfo.goodsName}}</h2>
+          <h2 class="col" style="padding: 0px">{{goodsInfo.storeName}}</h2>
+        </div>
+        <h2 class="row">{{goodsInfo.goodsPrice}}</h2>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

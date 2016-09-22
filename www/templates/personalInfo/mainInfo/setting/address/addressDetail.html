@@ -1,0 +1,41 @@
+<ion-view view-title="收货地址管理">
+  <ion-nav-bar class="bar-balanced" align-title="center">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content class="" ng-init="province = oldAddress.province;city = oldAddress.city;region = oldAddress.region;street = oldAddress.street;userName = oldAddress.userName;mobile = oldAddress.mobile;zipCode = oldAddress.zipCode;defaultAddress = oldAddress.default;">
+    <div class="list ">
+      <div class="item item-icon-right">
+        <input ng-model="province" size="100%" style='overflow:auto; background-attachment: fixed; background-repeat: no-repeat; border-style: solid;
+border-color: #FFFFFF'>
+      </div>
+      <div class="item item-icon-right">
+        <input ng-model="city" size="100%" style='overflow:auto; background-attachment: fixed; background-repeat: no-repeat; border-style: solid;
+border-color: #FFFFFF'>
+      </div>
+      <div class="item item-icon-right padding">
+        <input ng-model="region" size="100%" style='overflow:auto; padding: 8px;background-attachment: fixed; background-repeat: no-repeat; border-style: solid;
+border-color: #FFFFFF'>
+      </div>
+      <div class="item item-icon-right padding">
+        <input ng-model="street" size="100%" style='overflow:auto; padding: 8px;background-attachment: fixed; background-repeat: no-repeat; border-style: solid;
+border-color: #FFFFFF'>
+      </div>
+      <div class="item item-icon-right">
+        <input ng-model="userName" size="100%" style='overflow:auto; background-attachment: fixed; background-repeat: no-repeat; border-style: solid;
+border-color: #FFFFFF'>
+        border-color: #FFFFFF'></i>
+      </div>
+      <div class="item item-icon-right">
+        <input ng-model="mobile" size="100%" style='overflow:auto; background-attachment: fixed; background-repeat: no-repeat; border-style: solid;
+border-color: #FFFFFF'>
+      </div>
+      <div class="item item-icon-right">
+        <input ng-model="zipCode" size="100%" style='overflow:auto; background-attachment: fixed; background-repeat: no-repeat; border-style: solid;
+border-color: #FFFFFF'>
+      </div>
+      <ion-toggle class="item" ng-model="defaultAddress" ng-checked="defaultAddress">设为默认地址</ion-toggle>
+      <div class="item button button-block button-balanced" ng-click="saveAddress(province,city,region,street,userName,mobile,zipCode,defaultAddress)">保存</div>
+    </div>
+  </ion-content>
+</ion-view>

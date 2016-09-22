@@ -1,0 +1,17 @@
+<ion-view view-title="待评价商品列表">
+  <ion-nav-bar class="bar-balanced" align-title="center">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item item-thumbnail-left" ng-repeat="goods in evaluateGoods" ng-click="editEvaluate(goods)">
+        <img ng-src="{{goods.goodsPictureSmall}}">
+        <div class="row">
+          <h2 class="col" style="padding: 0px">{{goods.goodsName}}</h2>
+          <h2 class="col" style="padding: 0px">{{goods.storeName}}</h2>
+        </div>
+        <h2 class="row">{{goods.goodsPrice}}</h2>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

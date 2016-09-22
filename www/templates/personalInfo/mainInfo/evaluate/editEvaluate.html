@@ -1,0 +1,19 @@
+<ion-view>
+  <ion-nav-bar class="bar-balanced" align-title="center">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+<div class="item item-avatar-left">
+<img ng-src="{{evaluateGoods.goodsPictureSmall}}">
+  <p>{{evaluateGoods.goodsName}}</p>
+  <p>{{evaluateGoods.goodsPrice}}</p>
+</div>
+    <textarea ng-model="evaluation.words" placeholder="请输入您的评价，5-100个字" style="width: inherit;height: 20%;!important;"></textarea>
+    <!--<label class="item item-input" ng-bind="evaluation.words">-->
+      <!--<textarea placeholder="comments"></textarea>-->
+    <!--</label>-->
+    <div class="button button-positive button-block" ng-click="submitEvaluation(evaluateGoods)">
+      提交
+    </div>
+  </ion-content>
+</ion-view>

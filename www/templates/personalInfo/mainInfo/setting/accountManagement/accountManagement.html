@@ -1,0 +1,46 @@
+<ion-view view-title="账户管理">
+  <ion-nav-bar class="bar-balanced">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <!--<div class="list card">-->
+      <!--<a href="#/tab/mainInfo/setting/accountManagement/loginPwd" class="item item-icon-right">-->
+        <!--<div class="row">-->
+          <!--<div class="col">登陆密码</div>-->
+          <!--<div class="col" style="text-align: right"></div>-->
+        <!--</div>-->
+        <!--<i class="icon ion-ios-arrow-right"></i>-->
+      <!--</a>-->
+      <!--<a href="#/tab/mainInfo/setting/accountManagement/payPwd" class="item item-icon-right">-->
+        <!--<div class="row">-->
+          <!--<div class="col">支付密码</div>-->
+          <!--<div class="col" style="text-align: right"></div>-->
+        <!--</div>-->
+        <!--<i class="icon ion-ios-arrow-right"></i>-->
+      <!--</a>-->
+    <!--</div>-->
+
+    <ion-list>
+      <ion-item class="item item-icon-right" ng-click="showLoginPwd()">
+        <!--<a href="#/tab/mainInfo/setting/accountManagement/loginPwd">-->
+          <div class="row">
+            <div class="col">修改登陆密码</div>
+            <div class="col" style="text-align: right"></div>
+          </div>
+          <i class="icon ion-ios-arrow-right"></i>
+        <!--</a>-->
+      </ion-item>
+      <!--<ion-item class="item item-icon-right" ng-click="showPayPwd()">-->
+          <!--<div class="row">-->
+            <!--<div class="col">支付密码</div>-->
+            <!--<div class="col" style="text-align: right"></div>-->
+          <!--</div>-->
+          <!--<i class="icon ion-ios-arrow-right"></i>-->
+      <!--</ion-item>-->
+    </ion-list>
+  </ion-content>
+  <ion-footer-bar style="padding:1px 0px 4px 0px;!important;">
+    <div class="button button-positive button-block" style="margin: 0px;padding: 0px;width: inherit;" ng-click="quitAccount()">退出当前账户</div>
+  </ion-footer-bar>
+</ion-view>

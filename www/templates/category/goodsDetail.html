@@ -1,0 +1,43 @@
+<ion-view view-title="商品详情">
+  <ion-nav-bar class="bar-balanced" align-title="center">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+
+    <div>
+      <ion-slide-box style="height: 30%">
+        <ion-slide>
+          <img ng-src="{{goodsInfo.goodsPictureSmall}}">
+        </ion-slide>
+        <ion-slide>
+          <img ng-src="{{goodsInfo.goodsPictureSmall}}">
+        </ion-slide>
+        <ion-slide>
+          <img ng-src="{{goodsInfo.goodsPictureSmall}}">
+        </ion-slide>
+      </ion-slide-box>
+
+      <h5>{{goodsInfo.goodsName + " " +goodsInfo.goodsInventory}}</h5>
+      <p>{{goodsInfo.goodsPrice}}</p>
+
+
+    </div>
+
+    <div class="list">
+      <div class="item" ng-repeat="evaluation in  goodsEvaluations">
+        <p>{{evaluation.userInfo.nickName}}<span style="float: right;display: inline-block">{{evaluation.createTime}}</span></p>
+        <p>{{evaluation.evaluation}}</p>
+      </div>
+    </div>
+
+  </ion-content>
+  <ion-footer-bar style="padding: 0px">
+    <div class="col positive-bg" style="padding: 5px 0px">
+      <div class="button button-positive" ng-click="addToShoppingCart(goodsInfo)" style="float: right;border-radius:0px">加入购物车</div>
+      <div class="button button-positive" ng-click="goToShoppingCart()" style="float: right;border-radius:0px">购物车</div>
+      <div class="button button-positive" ng-click="addToCollectionGoods(goodsInfo)" style="float: right;border-radius:0px">收藏</div>
+    </div>
+    <!--</div>-->
+  </ion-footer-bar>
+</ion-view>

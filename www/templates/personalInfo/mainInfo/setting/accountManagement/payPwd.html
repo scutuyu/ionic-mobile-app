@@ -1,0 +1,50 @@
+<ion-view view-title="支付密码">
+  <ion-nav-bar class="bar-balanced">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <!--<div style="background: gray">修改密码</div>-->
+    <div class="row">
+      <div class="col" style="{{myColor1}}">
+        1
+        <div>验证身份</div>
+      </div>
+      <div class="col" style="{{myColor2}}">
+        2
+        <div>修改登陆密码</div>
+      </div>
+    </div>
+    <div ng-show="first">
+      <div class="row">
+        <input ng-model="identity.phoneNum" placeholder="手机号" style="border: 0px;width: inherit">
+      </div>
+      <div class="row">
+        <input class="col col-20" ng-model="identity.verificationCode" type="text" placeholder="校验码">
+        <div class="col">
+          <div class=" button button-small button-stable" ng-click="getConfirmation()" style="padding:0px;border:0px;font-size: 1px;float: right;!important;">
+            获取校验码
+          </div>
+        </div>
+      </div>
+      <div class="button button-balanced button-block" style="align-content: center" ng-click="clickNext()">下一步</div>
+    </div>
+    <div ng-show="second">
+      <table>
+        <tr>
+          <!--<td>旧密码：</td>-->
+          <td><input type="password" ng-model="password.oldPassword" placeholder="旧密码"></td>
+        </tr>
+        <tr>
+          <!--<td>新密码：</td>-->
+          <td><input type="password" ng-model="password.newPassword" placeholder="新密码"></td>
+        </tr>
+        <tr>
+          <!--<td>确&nbsp;&nbsp;&nbsp;认：</td>-->
+          <td><input type="password" ng-model="password.confirmPassword" placeholder="确认密码"></td>
+        </tr>
+      </table>
+      <div class="button button-balanced button-block" ng-click="submit()">提交</div>
+    </div>
+  </ion-content>
+</ion-view>

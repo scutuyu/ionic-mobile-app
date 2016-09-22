@@ -1,0 +1,110 @@
+<ion-view view-title="{{viewTitle}}">
+  <ion-nav-bar class="bar-balanced" align-title="center">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <div class="button-bar" onscroll="false">
+      <a class="orderButton button" ng-click="selectModel('first')">已完成</a>
+      <a class="orderButton button" ng-click="selectModel('second')">待付款</a>
+      <a class="orderButton button" ng-click="selectModel('third')">待发货</a>
+      <a class="orderButton button" ng-click="selectModel('fourth')">待收货</a>
+      <a class="orderButton button" ng-click="selectModel('fifth')">待评价</a>
+    </div>
+    <div ng-switch="showModel">
+      <div ng-switch-when="first">
+        <ion-list>
+          <ion-item ng-repeat="order in dataSource track by $index" style="border: 1px solid rgba(255, 190, 204, 0.18);padding: 0px" ng-init="viewInit()">
+            <ion-checkbox ng-model="order.selected">
+                <div class="row" style="padding: 0px;margin: 0px;border: 0px;!important;">
+                  <div class="list col" style="width: inherit;">
+                    <div class="item" style="padding: 0px;margin: 0px;border: 0px">{{orderStatus}} | 订单号：{{order.id}}</div>
+                    <div class="item" style="padding: 0px;margin: 0px;border: 0px;font-size: small">{{order.createTime}} | {{order.userInfo.nickName}}   <span style="float: right">订单金额￥{{order.totalMoney}}元</span></div>
+                  </div>
+                </div>
+                <div class="row" style="margin-top: 10px">
+                  <div class="list" style="border: 0px">
+                    <div class="item item-thumbnail-left" ng-repeat="goods in order.goods track by $index" style="border: 0px;padding-top: 0px;padding-bottom: 0px;!important;">
+                      <img ng-src="{{goods.goodsPictureSmall}}" style="width: 64px;height: 64px">
+                      <p>{{goods.goodsName}}</p>
+                      <p>￥{{goods.goodsPrice}} x {{ goods.purchaseNum}}</p>
+                      <p ng-if="evaluateStatus">
+                        <span ng-if="goods.evaluated">已评价</span>
+                        <span ng-if="!goods.evaluated">未评价</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+            </ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </div>
+      <div ng-switch-when="second">
+        <div ng-if="false">
+          <h1>没有相关订单</h1>
+
+          <h2>可以去看看有哪些想买的</h2>
+          <button ng-click="goHome()">随便逛逛</button>
+        </div>
+        <ion-list>
+          <ion-item ng-repeat="order in ordersd" style="border: 1px solid rgba(255, 190, 204, 0.18);padding: 0px">
+            <ion-checkbox>
+              <div class="col">
+                <div class="orderButton row">{{order.goodsName}}</div>
+                <div class="row">
+                  <div class="col" style="text-align: left"><img ng-src="{{order.goodsPicture}}" width="32px"
+                                                                 height="32px"></div>
+                  <div class="orderButton col" style="text-align: right">&#65509;{{order.goodsPrice}}</div>
+                </div>
+                <div class="row">
+                  <div class="orderButton col" style="text-align: right">x{{order.goodsNum}}</div>
+                </div>
+                <div class="row">
+                  <div class="orderButton col" style="text-align: right">共{{order.goodsNum}}件商品 合计：&#65509;{{order.goodsPrice*order.goodsNum}}（含运费&#65509;{{order.goodsFreight}}）</div>
+                </div>
+              </div>
+            </ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </div>
+      <div ng-switch-when="third">
+        <h1>没有相关订单</h1>
+
+        <h2>可以去看看有哪些想买的</h2>
+        <button ng-click="goHome()">随便逛逛</button>
+      </div>
+      <div ng-switch-when="fourth">
+        <h1>没有相关订单</h1>
+
+        <h2>可以去看看有哪些想买的</h2>
+        <button ng-click="goHome()">随便逛逛</button>
+      </div>
+      <div ng-switch-when="fifth">
+        <h1>没有相关订单</h1>
+
+        <h2>可以去看看有哪些想买的</h2>
+        <button ng-click="goHome()">随便逛逛</button>
+      </div>
+    </div>
+  </ion-content>
+  <ion-footer-bar class="bar-assertive" style="background: rgba(0,0,0, 0.5);padding: 0px;">
+    <div class="row" style="padding:0px">
+      <div class="col" style="padding: 0px">
+        <div class="checkbox">
+          <input type="checkbox" ng-click="selectAll(showModel)" ng-model="checkboxSelectAll" style="float: left"><span style="block-progression;padding-top: 10px">全选</span>
+        </div>
+
+      </div>
+      <div class="col" style="padding: 0px" ng-switch="showOption">
+        <a class="allOrderButton button button-clear" ng-switch-when="first" ng-click="cancelOrder()" ng-if="showCancelOrder" style="margin-top: 5px;">删除订单</a>
+        <a class="allOrderButton button button-clear" ng-switch-when="first" ng-click="buyAgain()" ng-if="showCancelOrder" style="margin-top: 5px;">再次购买</a>
+        <a class="button button-clear" ng-switch-when="second" ng-click="deleteNotPayedOrder()" ng-if="showGoToPay" style="margin-top: 5px;">删除订单</a>
+        <a class="button button-clear" ng-switch-when="second" ng-click="goToPay()" ng-if="showGoToPay" style="margin-top: 5px;">去付款</a>
+        <a class="button button-clear" ng-switch-when="third" ng-click="reminder()" ng-if="showReminder" style="margin-top: 5px;">催单</a>
+        <a class="button button-clear" ng-switch-when="fourth" ng-click="confirmGoods()" ng-if="showConfirmGoods" style="margin-top: 5px;">确认收货</a>
+        <a class="button button-clear" ng-switch-when="fifth" ng-click="evaluateGoods()" ng-if="showEvaluate" style="margin-top: 5px;">去评价</a>
+
+      </div>
+    </div>
+  </ion-footer-bar>
+</ion-view>

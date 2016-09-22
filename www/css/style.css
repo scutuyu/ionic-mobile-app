@@ -1,0 +1,23 @@
+/* Empty. Add your own CSS if you like */
+
+.categoryButton {
+  padding: 0px !important;
+  margin: 0px !important;
+  border: 0px !important;
+}
+
+.collection_a {
+  border: 0px;
+}
+
+.orderButton {
+  font-size: smaller;
+}
+
+.allOrderButton {
+  background: rgba(0,0,0, 0) !important;
+  color:#ffffff !important;
+}
+#myCheckbox{
+font-size: 100px;
+}

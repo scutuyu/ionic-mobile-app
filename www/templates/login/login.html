@@ -1,0 +1,34 @@
+<ion-view>
+  <ion-content>
+    <div class="elastic-image" style="width: inherit;height: 20%;background: url('img/bg.jpg');background-size:cover;!important;">
+    </div>
+    <!--<div id="the-image-id" class="elastic-image"-->
+         <!--style="background-image: url('img/bg.jpg')"></div>-->
+    <div class="list">
+      <label class="item item-input">
+        <input type="text" ng-model="userAccount.account" placeholder="用户名"
+               onfocus="if(this.value == 'name') this.value = ''" onblur="if(this.value =='') this.value = 'name'">
+      </label>
+      <label class="item item-input">
+        <input type="password" ng-model="userAccount.password" placeholder="请输入密码">
+      </label>
+      <button class="button button-block button-positive" id="aotuLogin" ng-click="login()" style="margin-bottom: 0px">
+        登录
+      </button>
+      <div class="row" style="padding-top: 0px;padding-right: 0px;padding-left: 0px!important;">
+        <div class="col" style="padding-left: 0px">
+          <button class="button button-small button-positive" style="float: left;padding: 0px 10px"
+                  ng-click="userRegister()">
+            注册
+          </button>
+          <a style="display: block;margin-top: 5px" ng-click="getPassword()">忘记密码？</a>
+        </div>
+        <div class="col col-25" style="padding-right: 0px;!important;">
+          <button class="button button-small button-positive" style="float: right" ng-click="notLogin()">
+            暂不登录
+          </button>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

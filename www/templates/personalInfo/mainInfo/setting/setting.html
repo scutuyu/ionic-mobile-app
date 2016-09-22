@@ -1,0 +1,83 @@
+<ion-view view-title="设置">
+  <ion-nav-bar class="bar-balanced">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <ion-list ng-init="refreshUserInfo()">
+      <ion-item class="item item-icon-right" ng-click="showHeadPortrait($event)" style="padding-top: 8px;padding-bottom: 8px!important;">
+        <div class="row">
+          <div class="col">头像</div>
+          <div class="col" style="text-align: right"><img ng-src="{{userInfo.headPortrait}}" width="32px" height="32px">
+          </div>
+        </div>
+        <i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+      <ion-item class="item item-icon-right" ng-click="showNickName()">
+        <div class="row">
+          <div class="col">昵称</div>
+          <div class="col" style="text-align: right">{{userInfo.nickName}}</div>
+        </div>
+        <i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+      <ion-item class="item item-icon-right" ng-click="showSex()">
+        <div class="row">
+          <div class="col">性别</div>
+          <div class="col" style="text-align: right">{{userInfo.sex}}</div>
+        </div>
+        <i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+      <ion-item class="item item-icon-right" ng-click="showAddress()">
+        <div class="row">
+          <div class="col">收货地址</div>
+          <div class="col" style="text-align: right;font-size: xx-small ">可管理地址</div>
+        </div>
+        <i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+      <ion-item class="item item-icon-right" ng-click="showAccountManagement()">
+        <div class="row">
+          <div class="col">账户管理</div>
+          <div class="col" style="text-align: right;font-size: xx-small " >可修改密码</div>
+        </div>
+        <i class="icon ion-ios-arrow-right"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <script id="showHeadPortrait.html" type="text/ng-template" ng-controller="MainInfoSettingCtrl">
+    <ion-popover-view class="calm-bg light padding" >
+      <div class="row">
+        <div class="col">
+          <img src="img/tmike.png" ng-click="choosePortrait('img/tmike.png')">
+        </div>
+        <div class="col">
+          <img src="img/tmax.png" ng-click="choosePortrait('img/tmax.png')">
+        </div>
+        <div class="col">
+          <img src="img/tperry.png" ng-click="choosePortrait('img/tperry.png')">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <img src="img/test.png" ng-click="choosePortrait('img/test.png')">
+        </div>
+        <div class="col">
+          <img src="img/tang.png" ng-click="choosePortrait('img/tang.png')">
+        </div>
+        <div class="col">
+          <img src="img/thuang.png" ng-click="choosePortrait('img/thuang.png')">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <img src="img/tdeng.png" ng-click="choosePortrait('img/tdeng.png')">
+        </div>
+        <div class="col">
+          <img src="img/tyao.png" ng-click="choosePortrait('img/tyao.png')">
+        </div>
+        <div class="col">
+          <img src="img/tlian.png" ng-click="choosePortrait('img/tlian.png')">
+        </div>
+      </div>
+    </ion-popover-view>
+  </script>
+</ion-view>

@@ -1,0 +1,17 @@
+<ion-view view-title="收货地址">
+  <ion-nav-bar class="bar-stable">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="address in AddressesInfo">
+        <ion-radio style="border: 0px" ng-model="selected.choice" ng-value="address" ng-change="selectAddress(address)">
+          <h2>{{address.province + address.city + address.region}}  </h2>
+          <p>{{address.userName}}</p>
+          <p>{{address.mobile}}</p>
+        </ion-radio>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

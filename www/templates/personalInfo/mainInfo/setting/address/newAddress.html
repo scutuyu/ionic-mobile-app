@@ -1,0 +1,38 @@
+<ion-view view-title="新增收货地址">
+  <ion-nav-bar class="bar-balanced" align-title="center">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <!--<input type="text" ng-model="newAddress.province" placeholder="省份">-->
+
+    <!--<div ng-bind="newAddress.province"></div>-->
+    <div class="list">
+      <label class="item item-input">
+        <input type="text" placeholder="省份" ng-model="newAddress.province">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="市区" ng-model="newAddress.city">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="县" ng-model="newAddress.region">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="街道" ng-model="newAddress.street">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="邮编" ng-model="newAddress.zipCode">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="收件人姓名" ng-model="newAddress.userName">
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="收件人电话号码" ng-model="newAddress.mobile">
+      </label>
+      <ion-toggle class="item" ng-model="item.checked" ng-checked="item.checked" ng-click="checkDefaultAddress()">设为默认地址</ion-toggle>
+      <button class="button button-block button-positive" ng-click="saveNewAddress()">
+        保存
+      </button>
+    <!--</div>-->
+
+  </ion-content>
+</ion-view>

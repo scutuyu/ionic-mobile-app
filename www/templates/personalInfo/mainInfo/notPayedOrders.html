@@ -1,0 +1,33 @@
+<ion-view view-title=" 待付款">
+  <ion-nav-bar class="bar-balanced" align-title="center">
+    <ion-nav-back-button></ion-nav-back-button>
+    <ion-nav-buttons side="right">
+      <button class="button button-balanced" ng-click="deleteNotPayedOrders()">编辑</button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content>
+    <ion-list show-delete="item.flag">
+      <ion-item ng-repeat="order in notPayedOrders">
+        <ion-checkbox ng-model="order.selected" style="border: 0px!important;">
+          <div class="col">
+            <div class="orderButton row">{{order.goodsName}}</div>
+            <div class="row">
+              <div class="col" style="text-align: left"><img ng-src="{{order.goodsPicture}}" width="32px"
+                                                             height="32px"></div>
+              <div class="orderButton col" style="text-align: right">&#65509;{{order.goodsPrice}}</div>
+            </div>
+            <div class="row">
+              <div class="col col-25 balanced-bg" ng-if="completed(order)">已完成</div>
+              <div class="orderButton col" style="text-align: right">{{order.confirmed}}</div>
+              <div class="orderButton col" style="text-align: right">x{{order.goodsNum}}</div>
+            </div>
+            <div class="row">
+              <div class="orderButton col" style="text-align: right">共{{order.goodsNum}}件商品 合计：&#65509;{{order.goodsPrice*order.goodsNum}}（含运费&#65509;{{order.goodsFreight}}）</div>
+            </div>
+          </div>
+        </ion-checkbox>
+        <ion-delete-button class="ion-minus-circled" ng-click="delete_item(order)"></ion-delete-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

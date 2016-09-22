@@ -1,0 +1,23 @@
+<ion-view view-title="收藏的商品">
+  <ion-nav-bar class="bar-balanced" align-title="center">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <ion-refresher
+      pulling-text="下拉刷新..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+    <ion-list>
+      <ion-item class="item-remove-animate item-thumbnail-left item-icon-right" ng-repeat="goods in collectionGoods"
+                type="item-text-wrap" ng-click="showDetail(goods)">
+        <img ng-src="{{goods.goodsPictureSmall}}">
+
+        <h2>{{goods.goodsName}}</h2>
+        <ion-option-button class="button-assertive" ng-click="remove(goods)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

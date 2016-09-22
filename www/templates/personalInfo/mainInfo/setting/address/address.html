@@ -1,0 +1,27 @@
+<ion-view view-title="地址">
+  <ion-nav-bar class="bar-balanced" align-title="center">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+    <ion-nav-buttons class="button-balanced" side="right">
+      <button class="button button-balanced" ng-click="showDeleteButton()">编辑</button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content>
+    <ion-list show-delete="item.flag">
+      <ion-item class="item-remove-animate item-icon-right" style="padding: 0px!important;"
+                ng-repeat="address in AddressesInfo" type="item-text-wrap" ng-click="viewDetail(address)">
+        <!--href="#/tab/mainInfo/setting/address/{{address.id}}"-->
+        <h2>{{address.province+ " " + address.city + " " + address.region + " " + address.street}}</h2>
+
+        <p>{{address.userName}}</p>
+
+        <p>{{address.mobile}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+        <ion-delete-button class="ion-minus-circled" ng-click="delete_item(address)"></ion-delete-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-footer-bar>
+    <div class="button button-positive" style="margin: 0px;padding: 0px;width: inherit" ng-click="newAddress()">新增地址</div>
+  </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,77 @@
+<ion-view view-title="填写订单">
+  <ion-nav-bar class="bar-stable">
+    <ion-nav-back-button>返回购物车
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+
+    <div class="list item" style="margin: 0px;padding: 0px" ng-click="chooseAddress()">
+      <div style="background: #66ffa1">
+        <div class="row">
+          <div class="col">
+            {{addressInfo.userName}}
+          </div>
+          <div class="col">
+            {{addressInfo.mobile}}
+          </div>
+        </div>
+        <div class="row item-icon-right">
+          <div class="col" ng-if="addressInfo.default">
+            默认地址
+          </div>
+          <div class="col">
+            {{addressInfo.province + addressInfo.city + addressInfo.street}}
+          </div>
+          <!--<i class="icon ion-ios-arrow-right"></i>-->
+        </div>
+      </div>
+      <div style="width: 100%;height: 10px;background: #FFFFFF"></div>
+    </div>
+
+    <!--<div class="list item item-icon-right" style="background: #11c1f3;margin: 0;padding: 0px"-->
+         <!--ng-repeat="goods in templateMyGoods">-->
+      <!--<div class="row" style="padding: 0px">-->
+        <!--<div class="col col-33" style="padding: 0px">-->
+          <!--<img ng-src="{{goods.goodsPictureSmall}}" width="64px" height="64px">-->
+        <!--</div>-->
+        <!--<div class="col" style="padding: 0px">-->
+          <!--<div class="row">-->
+            <!--{{goods.goodsName}}-->
+          <!--</div>-->
+          <!--<div class="row">-->
+            <!--&#65509;{{goods.goodsPrice }}x{{ goods.purchaseNum}}-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<i class="icon ion-ios-arrow-right"></i>-->
+    <!--</div>-->
+
+    <div class="list">
+      <div class="item item-thumbnail-left" ng-repeat="goods in templateMyGoods" style="background: #11c1f3;">
+        <img ng-src="{{goods.goodsPictureSmall}}">
+        <p>{{goods.goodsName}}</p>
+        <p>￥{{goods.goodsPrice}} x {{goods.purchaseNum}}</p>
+      </div>
+    </div>
+
+  </ion-content>
+  <ion-footer-bar align-title="left" class="bar-assertive" style="background: rgba(0,0,0, 0.5);">
+    <div class="row" style="padding: 0px">
+      <!--<div class="col">-->
+      <!--<div class="checkbox" style="padding: 0px">-->
+      <!--<input type="checkbox" style="float: left"><span>全选</span>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--&#65509;-->
+      <div class="col">
+        合计：{{templateTotalMoney}}
+      </div>
+
+      <div class="col buttons" style="padding: 0px">
+        <button class="item item-button-right" ng-click="submitOrder()"
+                style="padding: 0px;background: #ff2435;font-family: Roboto;border: 0px;"><span
+          style="color: #fefefe">提交订单</span></button>
+      </div>
+    </div>
+  </ion-footer-bar>
+</ion-view>

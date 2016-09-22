@@ -1,0 +1,22 @@
+<ion-view view-title="收藏的店铺">
+  <ion-nav-bar class="bar-balanced" align-title="center">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="store in collectionStores"
+                type="item-text-wrap" >
+        <!--href="#/tab/{{store.goodsUrl}}"-->
+        <img ng-src="{{store.storePicture}}">
+
+        <h2>{{store.storeName}}</h2>
+        <h3>{{store.storeUrl}}</h3>
+        <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+        <ion-option-button class="button-assertive" ng-click="remove(store)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

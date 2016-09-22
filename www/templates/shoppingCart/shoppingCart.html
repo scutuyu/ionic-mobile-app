@@ -1,0 +1,80 @@
+<ion-view view-title="购物车">
+  <ion-nav-bar class="bar-balanced" align-title="center">
+    <ion-nav-buttons side="right">
+      <button class="button button-balanced" ng-click="editShoppingCart()">编辑</button>
+    </ion-nav-buttons>
+
+  </ion-nav-bar>
+  <ion-content>
+    <ion-refresher
+      pulling-text="下拉刷新..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+
+    <ion-list show-delete="item.flag" style="padding: 0px">
+      <ion-item class="item" ng-repeat="goods in goodsInfo"
+                style="border: 0px solid rgba(255, 190, 204, 0.18);padding: 0px;!important;">
+        <div class="row">
+          <div class="col">
+            <ion-checkbox ng-model="goods.selected" ng-change="ng_change(goods.selected)"
+                          style="width: 20px;margin-left:-35px;padding-bottom: 15px;padding-top:15px;padding-right: 30px;padding-left: 15px;border: 1px"></ion-checkbox>
+          </div>
+          <div class="col" style="margin-left: -90%">
+            <div class="row">{{goods.goodsName}}</div>
+            <div class="row">
+              <div class="col" style="text-align: left"><img ng-src="{{goods.goodsPictureSmall}}" width="32px"
+                                                             height="32px">
+              </div>
+              <div class="col">{{order.goodsName}}</div>
+              <div class="col" style="text-align: right">&#65509;{{goods.goodsPrice}}</div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div style="">
+                  <div style="float: left">
+                    <button
+                      style="background: #FFFFFF;border: #4a5948 1px solid;"
+                      ng-click="subtractPurchaseNum(goods.goodsId)">-
+                    </button>
+                  </div>
+                  <div style="float: left">
+                    <button
+                      style="background: #FFFFFF;border-top:#4a5948 1px solid;border-bottom: #4a5948 1px solid;border-right:#4a5948 0px solid;border-left:#4a5948 0px solid"
+                      >{{goods.purchaseNum}}
+                    </button>
+                  </div>
+                  <div style="float: left">
+                    <button
+                      style="background: #FFFFFF;border: #4a5948 1px solid"
+                      ng-click="addPurchaseNum(goods.goodsId)">+
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col" style="text-align: right">x{{goods.purchaseNum}}</div>
+            </div>
+            <div class="row">
+              <div class="col" style="text-align: right">共{{goods.purchaseNum}}件商品 小计：&#65509;{{goods.goodsPrice*goods.purchaseNum}}</div>
+            </div>
+          </div>
+        </div>
+        <ion-delete-button class="ion-minus-circled" ng-click="delete_item(goods)"></ion-delete-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-footer-bar align-title="left" class="bar-assertive" style="background: rgba(0,0,0, 0.5);">
+    <div class="row" style="padding: 0px">
+      <div class="col">
+        <div class="checkbox" style="padding: 0px">
+          <input ng-click="selectAll()" ng-model="checkboxSelectAll" type="checkbox" style="float: left"><span>全选</span>
+        </div>
+      </div>
+      <div class="col">
+        合计：&#65509;{{calculateTotalMoney()}}
+      </div>
+      <div class="col buttons" style="padding: 0px">
+        <button class="item item-button-right" ng-click="ngsubmit()" style="padding: 0px">去结算</button>
+      </div>
+    </div>
+  </ion-footer-bar>
+</ion-view>

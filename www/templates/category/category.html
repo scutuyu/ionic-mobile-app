@@ -1,0 +1,232 @@
+<ion-view view-title="分类">
+  <ion-content scroll="false">
+    <div class="bar bar-header item-input-inset bar-balanced">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" placeholder="Search" ng-focus="showSearchWindow()">
+      </label>
+      <button class="button button-clear" ng-click="showSearchWindow()">
+        搜索
+      </button>
+    </div>
+    <div class="row" style="padding: 0px">
+      <div class="col col-25" style="height:500px;display:inline-block;overflow:auto;padding: 0px">
+        <a class="categoryButton item button  button-block" style="padding: 0px;" ng-click="selectMenu(1)">潮流女装</a>
+        <a class="categoryButton item button  button-block" style="padding: 0px" ng-click="selectMenu(2)">品牌男装</a>
+        <a class="categoryButton item button  button-block" style="padding: 0px" ng-click="selectMenu(3)">个护化妆</a>
+        <a class="categoryButton item button  button-block" style="padding: 0px" ng-click="selectMenu(4)">家用电器</a>
+        <a class="categoryButton item button  button-block" style="padding: 0px" ng-click="selectMenu(5)">手机数码</a>
+        <a class="categoryButton item button  button-block" style="padding: 0px" ng-click="selectMenu(6)">电脑办公</a>
+        <a class="categoryButton item button  button-block" style="padding: 0px" ng-click="selectMenu(7)">母婴童装</a>
+        <a class="categoryButton item button  button-block" style="padding: 0px" ng-click="selectMenu(8)">图书音像</a>
+        <a class="categoryButton item button  button-block" style="padding: 0px" ng-click="selectMenu(9)">家居家纺</a>
+        <a class="categoryButton item button  button-block" style="padding: 0px" ng-click="selectMenu(10)">居家生活</a>
+        <a class="categoryButton item button  button-block" style="padding: 0px" ng-click="selectMenu(11)">酒水饮料</a>
+        <a class="categoryButton item button  button-block" style="padding: 0px" ng-click="selectMenu(12)">户外运动</a>
+        <a class="categoryButton item button  button-block" style="padding: 0px" ng-click="selectMenu(13)">鞋靴箱包</a>
+        <a class="categoryButton item button  button-block" style="padding: 0px" ng-click="selectMenu(14)">奢品礼品</a>
+      </div>
+
+      <div class="col" style="height:500px;display:inline-block;overflow:auto">
+        <ion-list>
+          <ion-item class="item item-thumbnail-left" ng-repeat="goods in goodsInfo" ng-click="showDetail(goods)" style="border: 0px;">
+            <img ng-src="{{goods.goodsPictureSmall}}">
+            <div class="row">
+              <div class="col" style="padding: 0px;font-size: small">{{goods.goodsName}}</div>
+              <!--<div class="col" style="padding: 0px;font-size: small">{{goods.storeName}}</div>-->
+            </div>
+            <div class="row" style="padding-left: 6px;font-size: small">{{goods.storeName}}</div>
+            <h2 class="row" style="margin-top: 10px;color: #f41b24">￥{{goods.goodsPrice}}</h2>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <!--<div class="col" style="height:500px;display:inline-block;overflow:auto" ng-switch="index">-->
+        <!--<div ng-switch-when="index1">-->
+          <!--潮流女装-->
+          <!--<ion-list>-->
+            <!--<ion-item class="item item-thumbnail-left" ng-repeat="goods in goodsInfo">-->
+              <!--<img ng-src="{{goods.goodsPictureSmall}}">-->
+              <!--<div class="row">-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.goodsName}}</h2>-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.storeName}}</h2>-->
+              <!--</div>-->
+              <!--<h2 class="row">{{goods.goodsPrice}}</h2>-->
+            <!--</ion-item>-->
+          <!--</ion-list>-->
+        <!--</div>-->
+        <!--<div ng-switch-when="index2">-->
+          <!--品牌男装-->
+          <!--<ion-list>-->
+            <!--<ion-item class="item item-thumbnail-left" ng-repeat="goods in goodsInfo">-->
+              <!--<img ng-src="{{goods.goodsPictureSmall}}">-->
+              <!--<div class="row">-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.goodsName}}</h2>-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.storeName}}</h2>-->
+              <!--</div>-->
+              <!--<h2 class="row">{{goods.goodsPrice}}</h2>-->
+            <!--</ion-item>-->
+          <!--</ion-list>-->
+        <!--</div>-->
+        <!--<div ng-switch-when="index3">-->
+          <!--个护化妆-->
+          <!--<ion-list>-->
+            <!--<ion-item class="item item-thumbnail-left" ng-repeat="goods in goodsInfo">-->
+              <!--<img ng-src="{{goods.goodsPictureSmall}}">-->
+              <!--<div class="row">-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.goodsName}}</h2>-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.storeName}}</h2>-->
+              <!--</div>-->
+              <!--<h2 class="row">{{goods.goodsPrice}}</h2>-->
+            <!--</ion-item>-->
+          <!--</ion-list>-->
+        <!--</div>-->
+        <!--<div ng-switch-when="index4">-->
+          <!--家用电器-->
+          <!--<ion-list>-->
+            <!--<ion-item class="item item-thumbnail-left" ng-repeat="goods in goodsInfo">-->
+              <!--<img ng-src="{{goods.goodsPictureSmall}}">-->
+              <!--<div class="row">-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.goodsName}}</h2>-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.storeName}}</h2>-->
+              <!--</div>-->
+              <!--<h2 class="row">{{goods.goodsPrice}}</h2>-->
+            <!--</ion-item>-->
+          <!--</ion-list>-->
+        <!--</div>-->
+        <!--<div ng-switch-when="index5">-->
+          <!--手机数码-->
+          <!--<ion-list>-->
+            <!--<ion-item class="item item-thumbnail-left" ng-repeat="goods in goodsInfo">-->
+              <!--<img ng-src="{{goods.goodsPictureSmall}}">-->
+              <!--<div class="row">-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.goodsName}}</h2>-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.storeName}}</h2>-->
+              <!--</div>-->
+              <!--<h2 class="row">{{goods.goodsPrice}}</h2>-->
+            <!--</ion-item>-->
+          <!--</ion-list>-->
+        <!--</div>-->
+        <!--<div ng-switch-when="index6">-->
+          <!--电脑办公-->
+          <!--<ion-list>-->
+            <!--<ion-item class="item item-thumbnail-left" ng-repeat="goods in goodsInfo">-->
+              <!--<img ng-src="{{goods.goodsPictureSmall}}">-->
+              <!--<div class="row">-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.goodsName}}</h2>-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.storeName}}</h2>-->
+              <!--</div>-->
+              <!--<h2 class="row">{{goods.goodsPrice}}</h2>-->
+            <!--</ion-item>-->
+          <!--</ion-list>-->
+        <!--</div>-->
+        <!--<div ng-switch-when="index7">-->
+          <!--母婴童装-->
+          <!--<ion-list>-->
+            <!--<ion-item class="item item-thumbnail-left" ng-repeat="goods in goodsInfo">-->
+              <!--<img ng-src="{{goods.goodsPictureSmall}}">-->
+              <!--<div class="row">-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.goodsName}}</h2>-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.storeName}}</h2>-->
+              <!--</div>-->
+              <!--<h2 class="row">{{goods.goodsPrice}}</h2>-->
+            <!--</ion-item>-->
+          <!--</ion-list>-->
+        <!--</div>-->
+        <!--<div ng-switch-when="index8">-->
+          <!--图书音像-->
+          <!--<ion-list>-->
+            <!--<ion-item class="item item-thumbnail-left" ng-repeat="goods in goodsInfo">-->
+              <!--<img ng-src="{{goods.goodsPictureSmall}}">-->
+              <!--<div class="row">-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.goodsName}}</h2>-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.storeName}}</h2>-->
+              <!--</div>-->
+              <!--<h2 class="row">{{goods.goodsPrice}}</h2>-->
+            <!--</ion-item>-->
+          <!--</ion-list>-->
+        <!--</div>-->
+        <!--<div ng-switch-when="index9">-->
+          <!--家居家纺-->
+          <!--<ion-list>-->
+            <!--<ion-item class="item item-thumbnail-left" ng-repeat="goods in goodsInfo">-->
+              <!--<img ng-src="{{goods.goodsPictureSmall}}">-->
+              <!--<div class="row">-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.goodsName}}</h2>-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.storeName}}</h2>-->
+              <!--</div>-->
+              <!--<h2 class="row">{{goods.goodsPrice}}</h2>-->
+            <!--</ion-item>-->
+          <!--</ion-list>-->
+        <!--</div>-->
+        <!--<div ng-switch-when="index10">-->
+          <!--居家生活-->
+          <!--<ion-list>-->
+            <!--<ion-item class="item item-thumbnail-left" ng-repeat="goods in goodsInfo">-->
+              <!--<img ng-src="{{goods.goodsPictureSmall}}">-->
+              <!--<div class="row">-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.goodsName}}</h2>-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.storeName}}</h2>-->
+              <!--</div>-->
+              <!--<h2 class="row">{{goods.goodsPrice}}</h2>-->
+            <!--</ion-item>-->
+          <!--</ion-list>-->
+        <!--</div>-->
+        <!--<div ng-switch-when="index11">-->
+          <!--酒水饮料-->
+          <!--<ion-list>-->
+            <!--<ion-item class="item item-thumbnail-left" ng-repeat="goods in goodsInfo">-->
+              <!--<img ng-src="{{goods.goodsPictureSmall}}">-->
+              <!--<div class="row">-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.goodsName}}</h2>-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.storeName}}</h2>-->
+              <!--</div>-->
+              <!--<h2 class="row">{{goods.goodsPrice}}</h2>-->
+            <!--</ion-item>-->
+          <!--</ion-list>-->
+        <!--</div>-->
+        <!--<div ng-switch-when="index12">-->
+          <!--户外运动-->
+          <!--<ion-list>-->
+            <!--<ion-item class="item item-thumbnail-left" ng-repeat="goods in goodsInfo">-->
+              <!--<img ng-src="{{goods.goodsPictureSmall}}">-->
+              <!--<div class="row">-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.goodsName}}</h2>-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.storeName}}</h2>-->
+              <!--</div>-->
+              <!--<h2 class="row">{{goods.goodsPrice}}</h2>-->
+            <!--</ion-item>-->
+          <!--</ion-list>-->
+        <!--</div>-->
+        <!--<div ng-switch-when="index13">-->
+          <!--鞋靴箱包-->
+          <!--<ion-list>-->
+            <!--<ion-item class="item item-thumbnail-left" ng-repeat="goods in goodsInfo">-->
+              <!--<img ng-src="{{goods.goodsPictureSmall}}">-->
+              <!--<div class="row">-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.goodsName}}</h2>-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.storeName}}</h2>-->
+              <!--</div>-->
+              <!--<h2 class="row">{{goods.goodsPrice}}</h2>-->
+            <!--</ion-item>-->
+          <!--</ion-list>-->
+        <!--</div>-->
+        <!--<div ng-switch-when="index14">-->
+          <!--奢品礼品-->
+          <!--<ion-list>-->
+            <!--<ion-item class="item item-thumbnail-left" ng-repeat="goods in goodsInfo">-->
+              <!--<img ng-src="{{goods.goodsPictureSmall}}">-->
+              <!--<div class="row">-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.goodsName}}</h2>-->
+                <!--<h2 class="col" style="padding: 0px">{{goods.storeName}}</h2>-->
+              <!--</div>-->
+              <!--<h2 class="row">{{goods.goodsPrice}}</h2>-->
+            <!--</ion-item>-->
+          <!--</ion-list>-->
+        <!--</div>-->
+      <!--</div>-->
+
+
+    </div>
+  </ion-content>
+</ion-view>

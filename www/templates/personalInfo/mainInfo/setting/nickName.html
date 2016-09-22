@@ -1,0 +1,17 @@
+<ion-view view-title="昵称">
+  <ion-nav-bar class="bar-balanced" align-title="center">
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <div class="list">
+      <label class="item item-input">
+        <p>点击下面的输入框，输入新昵称后点击保存按钮</p>
+      </label>
+      <label class="item item-input">
+        <input type="text" ng-model="userInfo.nickName">
+      </label>
+      <div class="button button-positive button-block" ng-click="saveNickName()">保存</div>
+    </div>
+  </ion-content>
+</ion-view>
